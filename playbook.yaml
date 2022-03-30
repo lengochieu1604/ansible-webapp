@@ -1,0 +1,24 @@
+- name: Deploy a web application
+  hosts: db_and_web_server1 
+
+  become: true
+  tasks:
+    - name: try ping
+      ping: 
+
+    - name: install all required dependencies
+      apt: name={{item}} state=present force=yes
+      with_items:
+        - python
+        - python-setuptools
+        - python-dev
+        - build-essential 
+        - python-pip   
+        - python-mysqldb  
+        - python3-pymysql
+
+    - name: install pip3
+      apt: name=python3-pip state=present 
+      
+    - include: tasks/deploy_db.yml
+    - include: tasks/deploy_web.yml
