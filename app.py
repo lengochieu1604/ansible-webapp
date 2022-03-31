@@ -10,7 +10,7 @@ mysql_database_host = 'MYSQL_DATABASE_HOST' in os.environ and os.environ['MYSQL_
 
 # MySQL configurations
 app.config['MYSQL_DATABASE_USER'] = 'db_user'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'Azure@123'
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
 app.config['MYSQL_DATABASE_DB'] = 'employee_db'
 app.config['MYSQL_DATABASE_HOST'] = mysql_database_host
 mysql.init_app(app)
